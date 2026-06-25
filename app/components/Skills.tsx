@@ -1,21 +1,63 @@
 import React from "react";
+import { FiTerminal, FiLayers, FiCloud, FiTool } from "react-icons/fi";
+import { FaJs, FaJava, FaPhp, FaPython, FaDatabase, FaReact, FaVuejs, FaAws, FaGithub, FaDocker, FaFigma, FaGitAlt } from "react-icons/fa";
+import { SiTypescript, SiNextdotjs, SiNuxt, SiNestjs, SiFlutter, SiTailwindcss, SiGooglecloud, SiSupabase, SiSalesforce, SiPostgresql, SiMongodb, SiJira, SiNotion, SiCypress, SiSentry } from "react-icons/si";
+
+const getSkillIcon = (skill: string) => {
+  switch (skill) {
+    case "JavaScript": return <FaJs className="w-4 h-4" />;
+    case "TypeScript": return <SiTypescript className="w-4 h-4" />;
+    case "Java": return <FaJava className="w-4 h-4" />;
+    case "PHP": return <FaPhp className="w-4 h-4" />;
+    case "Python": return <FaPython className="w-4 h-4" />;
+    case "SQL": return <FaDatabase className="w-4 h-4" />;
+    case "Next.js": return <SiNextdotjs className="w-4 h-4" />;
+    case "React":
+    case "React Native": return <FaReact className="w-4 h-4" />;
+    case "Nuxt": return <SiNuxt className="w-4 h-4" />;
+    case "Vue": return <FaVuejs className="w-4 h-4" />;
+    case "Nest.js": return <SiNestjs className="w-4 h-4" />;
+    case "Flutter": return <SiFlutter className="w-4 h-4" />;
+    case "Tailwind CSS": return <SiTailwindcss className="w-4 h-4" />;
+    case "GCP": return <SiGooglecloud className="w-4 h-4" />;
+    case "AWS S3": return <FaAws className="w-4 h-4" />;
+    case "Supabase": return <SiSupabase className="w-4 h-4" />;
+    case "Salesforce": return <SiSalesforce className="w-4 h-4" />;
+    case "PostgreSQL": return <SiPostgresql className="w-4 h-4" />;
+    case "MongoDB": return <SiMongodb className="w-4 h-4" />;
+    case "Git": return <FaGitAlt className="w-4 h-4" />;
+    case "GitHub/GitLab": return <FaGithub className="w-4 h-4" />;
+    case "Docker": return <FaDocker className="w-4 h-4" />;
+    case "VSCode": return <SiNotion className="w-4 h-4 opacity-0 hidden" />; // No vscode icon needed, just fallback
+    case "Figma": return <FaFigma className="w-4 h-4" />;
+    case "JIRA": return <SiJira className="w-4 h-4" />;
+    case "Notion": return <SiNotion className="w-4 h-4" />;
+    case "Cypress": return <SiCypress className="w-4 h-4" />;
+    case "Sentry": return <SiSentry className="w-4 h-4" />;
+    default: return null;
+  }
+};
 
 const skillCategories = [
   {
     title: "Languages",
-    skills: ["JavaScript", "TypeScript", "Java", "PHP", "Python", "SQL"]
+    skills: ["JavaScript", "TypeScript", "Java", "PHP", "Python", "SQL"],
+    icon: <FiTerminal className="w-5 h-5" />
   },
   {
     title: "Frameworks & Libraries",
-    skills: ["Next.js", "React", "React Native", "Nuxt", "Vue", "Nest.js", "Flutter", "Tailwind CSS"]
+    skills: ["Next.js", "React", "React Native", "Nuxt", "Vue", "Nest.js", "Flutter", "Tailwind CSS"],
+    icon: <FiLayers className="w-5 h-5" />
   },
   {
     title: "Cloud & Infrastructure",
-    skills: ["GCP", "AWS S3", "Supabase", "Salesforce", "PostgreSQL", "MongoDB"]
+    skills: ["GCP", "AWS S3", "Supabase", "Salesforce", "PostgreSQL", "MongoDB"],
+    icon: <FiCloud className="w-5 h-5" />
   },
   {
     title: "Tools",
-    skills: ["Git", "GitHub/GitLab", "Docker", "VSCode", "Figma", "JIRA", "Notion", "Cypress", "Sentry"]
+    skills: ["Git", "GitHub/GitLab", "Docker", "VSCode", "Figma", "JIRA", "Notion", "Cypress", "Sentry"],
+    icon: <FiTool className="w-5 h-5" />
   }
 ];
 
@@ -35,12 +77,16 @@ export default function Skills() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-y-16 gap-x-12">
           {skillCategories.map((category, index) => (
             <div key={index} className="animate-fade-in-up group" style={{ animationDelay: `${index * 100}ms` }}>
-              <h3 className="text-sm font-light uppercase tracking-[0.2em] text-muted mb-6 group-hover:text-vibrant transition-colors">
-                {category.title}
-              </h3>
+              <div className="flex items-center gap-3 mb-6 group-hover:text-vibrant transition-colors text-muted">
+                {category.icon}
+                <h3 className="text-sm font-light uppercase tracking-[0.2em] mt-1">
+                  {category.title}
+                </h3>
+              </div>
               <div className="flex flex-wrap gap-x-6 gap-y-4">
                 {category.skills.map((skill, i) => (
-                  <span key={i} className="text-foreground font-medium hover:text-vibrant hover:scale-105 transition-all cursor-default">
+                  <span key={i} className="flex items-center gap-2 text-foreground font-medium hover:text-vibrant hover:scale-105 transition-all cursor-default">
+                    {getSkillIcon(skill)}
                     {skill}
                   </span>
                 ))}

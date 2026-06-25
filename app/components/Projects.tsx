@@ -1,4 +1,5 @@
 import React from "react";
+import { FiFolder, FiExternalLink } from "react-icons/fi";
 
 const projects = [
   {
@@ -51,7 +52,11 @@ export default function Projects() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
           {projects.map((project, index) => (
             <div key={index} className="flex flex-col h-full animate-fade-in-up group cursor-default" style={{ animationDelay: `${(index % 3) * 100}ms` }}>
-              <div className="text-xs font-light tracking-[0.2em] uppercase text-vibrant mb-4 opacity-70 group-hover:opacity-100 transition-opacity">{project.category}</div>
+              <div className="flex justify-between items-center mb-4">
+                <FiFolder className="text-vibrant w-8 h-8 opacity-70 group-hover:opacity-100 transition-opacity" strokeWidth={1} />
+                <FiExternalLink className="text-muted w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity hover:text-vibrant cursor-pointer" />
+              </div>
+              <div className="text-xs font-light tracking-[0.2em] uppercase text-vibrant mb-3 opacity-70 group-hover:opacity-100 transition-opacity">{project.category}</div>
               <h3 className="text-2xl font-medium heading-font text-foreground mb-4 group-hover:text-vibrant transition-colors">{project.title}</h3>
               <p className="text-muted mb-8 flex-grow font-light leading-relaxed group-hover:text-foreground transition-colors">
                 {project.description}

@@ -1,29 +1,34 @@
 import React from "react";
+import { FiBriefcase, FiLayers, FiSmartphone, FiMonitor } from "react-icons/fi";
 
 const experiences = [
   {
     role: "Freelance Full-stack Engineer",
     company: "Remote",
     period: "2024 — Present",
-    description: "Architected cloud-native, cross-platform applications and AI ecosystems. Built an SSI/SSA Case Status App using Nuxt, Salesforce, and GCP, and an AI-Doc-Parser System with RAG and HITL workflows. Collaborated on a Federal Proposal Writing Assistant Software leveraging Next.js and Supabase."
+    description: "Architected cloud-native, cross-platform applications and AI ecosystems. Built an SSI/SSA Case Status App using Nuxt, Salesforce, and GCP, and an AI-Doc-Parser System with RAG and HITL workflows. Collaborated on a Federal Proposal Writing Assistant Software leveraging Next.js and Supabase.",
+    icon: <FiLayers />
   },
   {
     role: "Software Engineer (Full-stack)",
     company: "Stratpoint Technologies",
     period: "2022 — 2024",
-    description: "Developed features for an internal HRIS portal using NodeJS and ReactJS. Created an event/office booking management app using Flutter, NextJS, Strapi, and Supabase. Applied Agile methodologies working with cross-functional teams."
+    description: "Developed features for an internal HRIS portal using NodeJS and ReactJS. Created an event/office booking management app using Flutter, NextJS, Strapi, and Supabase. Applied Agile methodologies working with cross-functional teams.",
+    icon: <FiBriefcase />
   },
   {
     role: "React Native Developer Intern",
     company: "Bluebeans Systems",
     period: "2022",
-    description: "Spearheaded the development of an e-Wallet Mobile Application using React Native. Implemented screens according to design specifications and integrated backend APIs."
+    description: "Spearheaded the development of an e-Wallet Mobile Application using React Native. Implemented screens according to design specifications and integrated backend APIs.",
+    icon: <FiSmartphone />
   },
   {
     role: "NextJS Developer Intern",
     company: "NEXPLAY Technologies",
     period: "2021 — 2022",
-    description: "Upgraded the Internal Admin Dashboard by implementing pages and components based on design specifications."
+    description: "Upgraded the Internal Admin Dashboard by implementing pages and components based on design specifications.",
+    icon: <FiMonitor />
   }
 ];
 
@@ -36,7 +41,10 @@ export default function Experience() {
         <div className="space-y-16">
           {experiences.map((exp, index) => (
             <div key={index} className="flex flex-col md:flex-row gap-6 md:gap-12 animate-fade-in-up group" style={{ animationDelay: `${index * 100}ms` }}>
-              <div className="md:w-1/4 shrink-0">
+              <div className="md:w-1/4 shrink-0 flex items-start gap-4">
+                <div className="mt-1 text-muted group-hover:text-vibrant transition-colors">
+                  {exp.icon}
+                </div>
                 <span className="text-sm font-light text-muted tracking-widest group-hover:text-vibrant transition-colors">{exp.period}</span>
               </div>
               <div className="md:w-3/4">

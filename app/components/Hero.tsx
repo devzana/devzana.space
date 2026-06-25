@@ -1,4 +1,6 @@
 import React from "react";
+import { FaEnvelope, FaLinkedin } from "react-icons/fa";
+import { FiUser } from "react-icons/fi";
 
 export default function Hero() {
   return (
@@ -15,28 +17,26 @@ export default function Hero() {
             Building elegant cloud-native architectures and high-performance cross-platform applications.
           </p>
           <div className="flex gap-6 mt-4 w-full sm:w-auto items-center">
-            <a href="mailto:lozanascbusiness@gmail.com" className="group flex items-center gap-3 text-foreground font-medium hover:text-vibrant transition-colors">
-              <span className="w-8 h-[2px] bg-foreground group-hover:bg-vibrant transition-colors"></span>
+            <a href="mailto:lozanascbusiness@gmail.com" className="group flex items-center gap-2 text-foreground font-medium hover:text-vibrant transition-colors">
+              <FaEnvelope className="text-lg group-hover:scale-110 transition-transform" />
               Get in touch
             </a>
-            <a href="https://linkedin.com/in/devzana/" target="_blank" rel="noreferrer" className="text-muted hover:text-vibrant transition-colors font-medium">
+            <a href="https://linkedin.com/in/devzana/" target="_blank" rel="noreferrer" className="group flex items-center gap-2 text-muted hover:text-vibrant transition-colors font-medium">
+              <FaLinkedin className="text-lg group-hover:scale-110 transition-transform" />
               LinkedIn
             </a>
           </div>
         </div>
         
         <div className="flex justify-center md:justify-end animate-fade-in-up delay-200">
-          {/* Minimalist Headshot Placeholder */}
-          <div className="relative w-64 h-80 sm:w-72 sm:h-96 rounded-sm glass glass-hover overflow-hidden flex items-center justify-center group">
-            <div className="absolute inset-0 bg-gradient-to-t from-vibrant/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
-            <div className="z-20 flex flex-col items-center gap-3 text-muted/50 group-hover:text-vibrant transition-colors duration-500">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                <circle cx="8.5" cy="8.5" r="1.5" />
-                <polyline points="21 15 16 10 5 21" />
-              </svg>
-              <span className="text-xs font-light tracking-[0.2em] uppercase">Portrait</span>
-            </div>
+          {/* Minimalist Headshot */}
+          <div className="relative w-96 h-96 md:w-[28rem] md:h-[28rem] lg:w-[32rem] lg:h-[32rem] animate-blob glass glass-hover flex items-center justify-center group shrink-0">
+            <div className="absolute inset-0 bg-gradient-to-t from-vibrant/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 mix-blend-overlay"></div>
+            <img 
+              src="https://avatars.githubusercontent.com/u/109569008?v=4" 
+              alt="Sean Lozana Portrait" 
+              className="w-full h-full object-cover z-0 grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 scale-100 group-hover:scale-105"
+            />
           </div>
         </div>
       </div>
