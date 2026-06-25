@@ -13,7 +13,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Sean Christian Lozana | Full-stack Engineer",
+  title: "devzana.",
   description: "Portfolio of Sean Christian Lozana, a Full-stack Engineer specializing in Next.js, React, and cloud architectures.",
 };
 
